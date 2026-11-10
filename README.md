@@ -25,6 +25,7 @@ Needs: git, Node 24+, the GitHub CLI (`gh`) signed in. The first review clones t
 ## Use
 
 ```
+/basivo-review:setup             # once per repo: writes .factory/knowledge/*.md and .factory/review.md, opens a PR
 /basivo-review:review            # the pull request of the current branch
 /basivo-review:review 42         # pull request #42 of this repo
 /basivo-review:review https://github.com/owner/repo/pull/42
