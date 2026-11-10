@@ -1,0 +1,11 @@
+{
+  "name": "basivo-review",
+  "displayName": "Basivo Review",
+  "version": "0.1.0",
+  "description": "Review a pull or merge request from your terminal: finds problems, verifies each one against the code, shows you the result, and posts inline comments only when you say so.",
+  "author": { "name": "Mohamed Abu Basith", "url": "https://basivo.in" },
+  "homepage": "https://github.com/mohamedabubasith/basivo-review",
+  "repository": "https://github.com/mohamedabubasith/basivo-review",
+  "license": "MIT",
+  "keywords": ["code-review", "pull-request", "merge-request", "github", "gitlab", "agent"]
+}
