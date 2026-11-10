@@ -66,7 +66,10 @@ if (command !== 'run' && command !== 'post') {
 const account = take('--account')
 const env = { ...process.env }
 if (!env.GH_TOKEN && !env.GITHUB_TOKEN && account) env.GH_TOKEN = out('gh', ['auth', 'token', '-u', account])
-if (!env.GH_TOKEN && !env.GITHUB_TOKEN && !env.GITLAB_TOKEN) {
+const gitlab = args.includes('--gitlab')
+if (gitlab && !env.GITLAB_TOKEN) {
+  try { env.GITLAB_TOKEN = out('glab', ['auth', 'token']) } catch { /* the engine reports the missing token */ }
+} else if (!gitlab && !env.GH_TOKEN && !env.GITHUB_TOKEN) {
   try { env.GH_TOKEN = out('gh', ['auth', 'token']) } catch { /* the engine reports the missing token */ }
 }
 // Remember the account for this repo.

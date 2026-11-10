@@ -14,10 +14,11 @@ Follow these steps in order. Do not skip the questions: nothing is posted withou
 Run `node "${CLAUDE_PLUGIN_ROOT}/scripts/preflight.mjs"` from the repository root and read the JSON.
 
 - `forge` null: not a git repository with an `origin` remote. Say so and stop.
-- `forge` is `gitlab`: GitLab support is not in this version yet. Say so and stop.
-- `cli` is `missing`: tell the user to install the GitHub CLI with the line in `install` for their OS, then sign in with `gh auth login`, and stop.
-- `tokenSource` null: tell the user to run `gh auth login` and stop.
-- `accounts` has more than one login and `remembered` is null: ask the user with AskUserQuestion which GitHub account to review as (list the logins; mark `active` as the default). The answer is the `--account` value below. With one login, or a `remembered` one, use it without asking.
+- GitHub (`forge` is `github`):
+  - `cli` is `missing`: tell the user to install the GitHub CLI with the line in `install` for their OS, then sign in with `gh auth login`, and stop.
+  - `tokenSource` null: tell the user to run `gh auth login` and stop.
+  - `accounts` has more than one login and `remembered` is null: ask the user with AskUserQuestion which GitHub account to review as (list the logins; mark `active` as the default). The answer is the `--account` value below. With one login, or a `remembered` one, use it without asking.
+- GitLab (`forge` is `gitlab`, any other host): `tokenSource` null means no `GITLAB_TOKEN` and no `glab` login; show the `help` line (where to create a project access token with the `api` scope) and stop. Otherwise add `--gitlab --host https://<host>` to every engine command below and leave out `--account`.
 
 ## 2. Which pull request
 
